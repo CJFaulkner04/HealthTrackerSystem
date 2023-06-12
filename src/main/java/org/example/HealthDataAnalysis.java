@@ -108,11 +108,17 @@ class HealthDataAnalysis {
             return (int) Duration.between(sleepTime, wakeupTime).toHours();
         } else if (wakeupTime.isBefore(sleepTime)) {
             LocalTime adjustedWakeupTime = wakeupTime.plus(Duration.ofDays(1));
-            return (int) Duration.between(sleepTime, adjustedWakeupTime).toHours();
+            Duration duration = Duration.between(sleepTime, adjustedWakeupTime);
+            if (duration.isNegative()) {
+                duration = duration.plus(Duration.ofDays(1));
+            }
+            return (int) duration.toHours();
         } else {
             return 0;
         }
     }
+
+
 
 
 

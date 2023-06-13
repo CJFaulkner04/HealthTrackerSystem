@@ -71,13 +71,8 @@ public class HealthDataInput {
 
         System.out.print("Enter the time you went to sleep (HH:mm): ");
         String sleepTimeStr = scanner.nextLine();
-        // Parse sleep time using LocalTime if needed
-
         System.out.print("Enter the time you woke up (HH:mm): ");
         String wakeupTimeStr = scanner.nextLine();
-        // Parse wakeup time using LocalTime if needed
-
-        // Perform sleep time and wakeup time calculations
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(SLEEP_FILE, true))) {
             writer.write(username + "," + date + "," + sleepTimeStr + "," + wakeupTimeStr);
